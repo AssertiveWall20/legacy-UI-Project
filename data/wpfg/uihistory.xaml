@@ -1,0 +1,40 @@
+﻿<Window x:Class="aoe3wpfg.uihistory_lny22"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:aoe3wpfg"
+        mc:Ignorable="d"
+        Title="uihistory"
+        Style="{StaticResource WindowStyle}">
+    <Viewbox Style="{StaticResource ViewboxMain}" Focusable="False">
+        <Grid x:Name="mainGridPanel" Width="1920" Height="1080" DataContext="{StaticResource optionsProxy}" Focusable="False">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="272"/>
+                <ColumnDefinition Width="7"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <ContentControl Grid.ColumnSpan="3" Template="{StaticResource ScreenBlur}" Focusable="False"/>
+
+            <Grid Grid.Column="0" Margin="14,0,0,0" x:Name="menuStrip">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="75"/>
+                </Grid.RowDefinitions>
+                <Rectangle Grid.Row="0" Fill="{StaticResource legacymain_menu_tile}" />
+                <Rectangle Grid.Row="1" Fill="{StaticResource legacymain_menu_end}" Height="64" VerticalAlignment="Top" Margin="0,-2,0,0" />
+		
+                <Frame Name="ButtonFrame" Width="245" Grid.Column="0" Focusable="False" NavigationUIVisibility="Hidden" Source="/pages/uipregamenew/HistorySubMenu.xaml" />
+            </Grid>
+
+            <Grid x:Name="contentStrip" Grid.Column="0" Grid.ColumnSpan="3" Margin="0,30,0,0" HorizontalAlignment="Stretch" MinWidth="1800" Style="{StaticResource PopupGrid}" Focusable="False">
+                <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,-25,0,0" Focusable="False">
+                    <ContentControl Template="{StaticResource PanelBG_Titled}" Width="1300" Height="920" Margin="-10,0,0,0" Focusable="False"/>
+                </Grid>
+                
+                <Frame Name="History_InfoPanel" HorizontalAlignment="Center" VerticalAlignment="Center"  Width="1920" Height="1080" Grid.Column="1" Margin="0,-30,0,0" Focusable="False" NavigationUIVisibility="Hidden" Source="/pages/uihistory/uihistoryhistories.xaml" />
+            </Grid>
+        </Grid>
+    </Viewbox>
+</Window>

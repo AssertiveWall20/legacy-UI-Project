@@ -1,0 +1,36 @@
+﻿<Page x:Class="aoe3wpfg.singleplayersidemenu"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:aoe3wpfg"
+      mc:Ignorable="d" 
+      MinHeight="1080"
+      Title="singleplayersidemenu">
+
+      <Grid Width="400">
+
+        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="-80,0,0,190" Width="400">
+            <local:Age3StackPanel Width="300" Margin="0,0,0,0" Fade="true">
+                <Image x:Name="TopBorder" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="1,0,0,0" Width="298" Source="pack://siteoforigin:,,,/resources/images/dropdown_top_ind.png" />
+
+                <!--Campaign-->
+                <local:Age3Button x:Name="CampaignButton" IsEnabled="{Binding EnabledWhenOnlineForBeta}" Style="{StaticResource legacyMainMenuSubButtonInd}" IsDefault="true" Margin="0,-2,0,0" Width="300" Content="Campaign" ConsoleCommand="doCampaign()" TabIndex="3" >
+                    <Button.ToolTip>$$48823$$Play an AOEIII Campaign</Button.ToolTip>
+                </local:Age3Button>
+                <!--Skirmish -->
+                <local:Age3Button x:Name="Skirmish" Style="{StaticResource legacyMainMenuSubButtonInd}" IsDefault="true" Width="300" Margin="0,-2,0,0" Content="Skirmish" ConsoleCommand="doSPSupremacySetup()" TabIndex="1" >
+                    <Button.ToolTip>Play a skirmish game agaisnt the AI.</Button.ToolTip>
+                </local:Age3Button>
+                <!--Historical Battles-->
+                <local:Age3Button x:Name="HistoricalBattlesButton" IsEnabled="{Binding EnabledForBeta}" Style="{StaticResource legacyMainMenuSubButtonInd}" IsDefault="true" Margin="0,-2,0,0" Width="300" Content="Historical Battles" ConsoleCommand="doHistoricalBattlesSetup()" TabIndex="4" >
+                    <Button.ToolTip>$$71423$$Relive histories greatest battles of all time.</Button.ToolTip>
+                </local:Age3Button>
+
+                <Image x:Name="BottomBorder" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="1,-2,0,0" Width="298" Source="pack://siteoforigin:,,,/resources/images/dropdown_bottom_ind.png" />
+
+            </local:Age3StackPanel>
+        </StackPanel>
+        
+    </Grid>
+</Page>
